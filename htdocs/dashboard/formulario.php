@@ -16,7 +16,7 @@ if(isset($_POST['submit']))
     $sql = "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,cidade,estado) 
     VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc','$cidade','$estado')";
  if (mysqli_query($conn, $sql)) {
-    header('Location : testeLogin.php');
+    header("Location: testeLogin.php");
     
         } else {
             echo "Error: " . mysqli_error($conn);
