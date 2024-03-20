@@ -19,7 +19,7 @@
         </nav>
 <section id="artigo1">
     <article>
-        <br><br>
+    <h2>Sobre o Higrômetro</h2>
         <img src="https://acdn.mitiendanube.com/stores/002/690/878/products/termo-higrometro-simpla-th01-16281-6c74a647ec241b4c0516720873781161-640-0.png" alt="Higrômetro">
       <p>O primeiro dispositivo para medir a umidade atmosférica, precursor do moderno higrômetro, foi concebido por Johann Heinrich Lambert (1728 – 1777).Os suíços Horace Bénédict de Saussure (1740 – 1799) e Jean-André de Luc (1727 – 1817) também desempenharam papéis importantes na evolução dos higrômetros. Em 1783, Saussure desenvolveu um higroscópio que funcionava medindo a alteração no comprimento de um fio de cabelo em resposta à umidade do ar. Por sua vez, André de Luc criou um instrumento similar utilizando um fino corte de osso de baleia. Outro marco histórico foi o higrômetro desenvolvido pelo inglês John Frederic Daniell (1790–1845), embora este exigisse montagem mais complexa e medições mais demoradas.</p>
    
