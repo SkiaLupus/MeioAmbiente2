@@ -59,6 +59,12 @@
             
                 <p>São higrômetros que usam um sensor eletrônico para medir a umidade, mas exibem a leitura em formato digital em vez de analógico. Eles são frequentemente mais precisos que os modelos analógicos e podem oferecer recursos adicionais, como registro de leituras históricas ou conectividade com outros dispositivos, como smartphones ou computadores.</p>
                 </article>
+            <section id="artigo4">
+            <article>
+                <h2>Codigo do Higrômetro</h2>
+                            
+                <p>São higrômetros que usam um sensor eletrônico para medir a umidade, mas exibem a leitura em formato digital em vez de analógico. Eles são frequentemente mais precisos que os modelos analógicos e podem oferecer recursos adicionais, como registro de leituras históricas ou conectividade com outros dispositivos, como smartphones ou computadores.</p>
+                </article>
         </section>
         <section id="Referencias">
             <article>
