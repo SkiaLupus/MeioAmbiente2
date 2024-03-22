@@ -15,6 +15,7 @@
                 <li><a href="#artigo2">Higrômetros Mecânicos</a></li>
                 <li><a href="#artigo3">Higrômetro Analógico</a></li>
                 <li><a href="#artigo4">Higrômetro Digital</a></li>
+                <li><a href="#artigo5">Codigo do Higrômetro</a></li>
             </ul>
         </nav>
 <section id="artigo1">
@@ -59,11 +60,87 @@
             
                 <p>São higrômetros que usam um sensor eletrônico para medir a umidade, mas exibem a leitura em formato digital em vez de analógico. Eles são frequentemente mais precisos que os modelos analógicos e podem oferecer recursos adicionais, como registro de leituras históricas ou conectividade com outros dispositivos, como smartphones ou computadores.</p>
                 </article>
-            <section id="artigo4">
+            <section id="artigo5">
             <article>
-                <h2>Codigo do Higrômetro</h2>
-                            
-                <p>São higrômetros que usam um sensor eletrônico para medir a umidade, mas exibem a leitura em formato digital em vez de analógico. Eles são frequentemente mais precisos que os modelos analógicos e podem oferecer recursos adicionais, como registro de leituras históricas ou conectividade com outros dispositivos, como smartphones ou computadores.</p>
+                <h2>Codigo do Higrômetro em linguagem C </h2>        
+                <p>#include <stdio.h></stdio.h></p>
+<p>#include <stdlib.h></p>
+<p>#include <wiringPi.h> // Biblioteca para Raspberry Pi (pode variar de acordo com o hardware utilizado)</p>
+<p>#include "DHT.h"     // Biblioteca para o sensor DHT</p>
+<p>#include "adc.h"     // Biblioteca para leitura de ADC (exemplo: MCP3008)</p>
+
+<p>#define DHTPIN 7        // Pino GPIO conectado ao sensor DHT</p>
+<p>#define DHTTYPE DHT22   // Tipo do sensor (DHT11 ou DHT22)</p>
+<p>#define VREF 3.3        // Referência de tensão do ADC</p>
+<p>#define PRESSURE_CHANNEL 0 // Canal do ADC para leitura da pressão</p>
+<p>#define VOLTAGE_CHANNEL 1 // Canal do ADC para leitura da tensão de saída do higrômetro</p>
+
+<p>DHT dht(DHTPIN, DHTTYPE); // Inicialização do objeto DHT</p>
+
+<p>// Função para ler o valor da pressão de vapor de água</p>
+<p>float readVaporPressure() {</p>
+  <p>  // Ler a tensão de saída do higrômetro</p>
+  <p>  int adc_value = analogRead(VOLTAGE_CHANNEL</p>
+   <p> float voltage = (adc_value * VREF) / 1023.0; // Conversão do valor do ADC para tensão</p>
+   <p> // Aqui pode ser aplicado um algoritmo para converter a tensão lida em pressão de vapor de água</p>
+  <p>  // Por exemplo, utilizando uma curva de calibração específica para o seu sensor</p>
+  <p>  return vapor_pressure;</p>
+<p>}</p>
+
+<p>int main() {</p>
+   <p> if (wiringPiSetup() == -1) {</p>
+   <p>     printf("Erro ao inicializar o WiringPi!\n");</p>
+    <p>    return 1;</p>
+   <p> }</p>
+
+  <p>  if (!dht.begin()) {</p>
+  <p>      printf("Falha ao iniciar o sensor DHT!\n");</p>
+   <p>     return 1;</p>
+   <p> }</p>
+
+  <p>  // Inicializa o ADC para leitura da pressão de vapor de água</p>
+  <p>  if (adcSetup() == -1) {</p>
+   <p>     printf("Falha ao inicializar o ADC!\n");</p>
+   <p>     return 1;</p>
+  <p>  }</p>
+
+  <p>  while (1) {</p>
+       <p> delay(2000); // Aguarda 2 segundos para a próxima leitura</p>
+
+       <p> // Lê a umidade e a temperatura do sensor DHT</p>
+      <p>  float humidity = dht.readHumidity();</p>
+       <p> float temperature = dht.readTemperature();</p>
+
+       <p> // Lê a pressão de vapor de água</p>
+      <p>  float vapor_pressure = readVaporPressure();</p>
+
+      <p>  // Verifica se a leitura do sensor foi bem-sucedida</p>
+      <p>  if (isnan(humidity) || isnan(temperature)) {</p>
+       <p>     printf("Falha ao ler os dados do sensor DHT!\n");</p>
+        <p>    continue;</p>
+       <p> }</p>
+
+       <p> // Verifica se a leitura da pressão de vapor de água foi bem-sucedida</p>
+       <p> if (vapor_pressure == -1) {</p>
+          <p>  printf("Falha ao ler os dados do higrômetro!\n");</p>
+          <p>  continue;</p>
+       <p> }</p>
+       <p> // Calcula a umidade relativa do ar</p>
+       <p> float relative_humidity = (vapor_pressure / 610.78) * 100; // Calculando a umidade relativa do ar com base na pressão de vapor de água</p>
+
+       <p> // Aqui podem ser aplicadas técnicas avançadas de processamento de sinais para garantir precisão</p>
+      <p>  // Por exemplo, filtragem de dados, compensação de erros, etc.</p>
+
+       <p> // Exibe os resultados</p>
+       <p> printf("Umidade: %.2f%%\n", humidity);</p>
+        <p>printf("Temperatura: %.2f°C\n", temperature);</p>
+       <p> printf("Pressão de Vapor de Água: %.2f Pa\n", vapor_pressure);</p>
+        <p>printf("Umidade Relativa do Ar: %.2f%%\n", relative_humidity);</p>
+    <p>}</p>
+
+    <p>return 0;</p>
+<p>}</p>
+<p>.</p>
                 </article>
         </section>
         <section id="Referencias">
